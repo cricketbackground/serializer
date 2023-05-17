@@ -50,8 +50,8 @@ abstract class Base implements Serializable {
     @JsonProperty
     public List<String> getTokens() {
         if (CollectionUtils.isNotEmpty(this.tokens)) return this.tokens;
-        if (StringUtils.isBlank(this.numbers)) return new ArrayList<>();
-        return new ArrayList<>(List.of(this.numbers.split(";\\s*")));
+        if (StringUtils.isBlank(this.numbers)) return Collections.emptyList();
+        return List.of(this.numbers.split(";\\s*"));
     }
 
     @JsonProperty
