@@ -22,9 +22,14 @@ abstract class Base implements Serializable {
     abstract String getField3();
 
     @JsonIgnore
+    private String flag;
+
+    @JsonIgnore
     private String numbers;
 
     private List<String> tokens;
+
+    private Boolean result;
 
     public String getNumbers() {
         return numbers;
@@ -34,6 +39,14 @@ abstract class Base implements Serializable {
         this.numbers = numbers;
     }
 
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
     @JsonProperty
     public List<String> getTokens() {
         if (CollectionUtils.isNotEmpty(this.tokens)) return this.tokens;
@@ -41,4 +54,9 @@ abstract class Base implements Serializable {
         return new ArrayList<>(List.of(this.numbers.split(";\\s*")));
     }
 
+    @JsonProperty
+    public boolean getResult() {
+        if (this.result != null) return this.result;
+        return "true".equalsIgnoreCase(this.flag);
+    }
   }
