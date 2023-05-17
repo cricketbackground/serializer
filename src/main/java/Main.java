@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        //ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper(); // this also works
         JsonMapper jsonMapper = new JsonMapper();
         Child child = new Child();
         child.setNumbers("1234; 5678");
