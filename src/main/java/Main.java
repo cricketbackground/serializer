@@ -11,6 +11,7 @@ public class Main {
         JsonMapper jsonMapper = new JsonMapper();
         Child child = new Child();
         child.setNumbers("1234; 5678");
+        child.setFlag("true");
         String valueAsString = mapper.writeValueAsString(child);
         System.out.println(valueAsString);
         Child reconstruct1 = mapper.readValue(valueAsString, Child.class);
